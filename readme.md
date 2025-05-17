@@ -30,11 +30,11 @@ Injecting into Far Cry 2's code at runtime, this patch aims to fix the game's mo
 
 ## Installation
 
-1. Download the latest version of [Ultimate-ASI-Loader.zip] (https://github.com/ThirteenAG/Ultimate-ASI-Loader/releases)
+1. Download the latest version of [Ultimate-ASI-Loader.zip](https://github.com/ThirteenAG/Ultimate-ASI-Loader/releases)
 
-2. Download Jackal Patch from the [releases] (https://github.com/Tobe95/JackalPatch/releases) page 
+2. Download Jackal Patch from the [releases](https://github.com/Tobe95/JackalPatch/releases) page 
 
-3. Drop the contents of both archives into ```/path/to/game/Far Cry 2/bin``` next to ```FarCry2.exe```.
+3. Drop the contents of both archives (dinput8.dll & scripts folder) into ```/path/to/game/Far Cry 2/bin``` next to ```FarCry2.exe```.
 
 4. Locate ```JackalPatch.ini``` inside the ```scripts``` folder and change the settings to your liking with a text editor, afterwards launch the game as usual. Done!
 
@@ -56,17 +56,17 @@ Injecting into Far Cry 2's code at runtime, this patch aims to fix the game's mo
 
 Many thanks to the following people:
 
-- Sergeanur - [Eagle Patch] (https://github.com/Sergeanur/EaglePatch) for Assassin's Creed served as both a template and inspiration for this project
+- Sergeanur - [Eagle Patch](https://github.com/Sergeanur/EaglePatch) for Assassin's Creed served as both a template and inspiration for this project
 
-- Withmorten - For the [win32 patcher] (https://github.com/withmorten/patcher) that Jackal Patch relies on
+- Withmorten - For the [win32 patcher](https://github.com/withmorten/patcher) that Jackal Patch relies on
 
-- ThirteenAG - For [ASI plugin loading] (https://github.com/ThirteenAG/Ultimate-ASI-Loader)
+- ThirteenAG - For [ASI plugin loading](https://github.com/ThirteenAG/Ultimate-ASI-Loader)
 
-- Boggalog - [An Almost Complete Guide to Far Cry 2 Modding] (https://www.nexusmods.com/farcry2/mods/299) was an invaluable resource in the process of making this patch
+- Boggalog - [An Almost Complete Guide to Far Cry 2 Modding](https://www.nexusmods.com/farcry2/mods/299) was an invaluable resource in the process of making this patch
 
-- scubrah - For the original [Bouncing NPCs Fix] (https://www.nexusmods.com/farcry2/mods/309)
+- scubrah - For the original [Bouncing NPCs Fix](https://www.nexusmods.com/farcry2/mods/309)
 
-- Lawrence McCauley - For the [tutorial] (https://lcmccauley.wordpress.com/2014/01/06/gamepadtutorial-part2/) on XInput and the included rumble function
+- Lawrence McCauley - For the [tutorial](https://lcmccauley.wordpress.com/2014/01/06/gamepadtutorial-part2/) on XInput and the included rumble function
 
 ## Tools Used
 
