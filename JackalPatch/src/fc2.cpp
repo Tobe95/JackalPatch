@@ -50,6 +50,7 @@ struct sAddresses
 	static uintptr_t _Rumble_Strength_Sprint_JumpOut;
 	static uintptr_t _Game_Version;
 	static uintptr_t _Game_Version_JumpOut;
+	static uintptr_t _Mesh_Highlight;
 };
 
 uintptr_t sAddresses::_Render_Thread = 0x180903A8;
@@ -91,6 +92,7 @@ uintptr_t sAddresses::_Rumble_Strength_Sprint = 0x106D292F;
 uintptr_t sAddresses::_Rumble_Strength_Sprint_JumpOut = 0x106D2937;
 uintptr_t sAddresses::_Game_Version = 0x107C56C3;
 uintptr_t sAddresses::_Game_Version_JumpOut = 0x107C56C8;
+uintptr_t sAddresses::_Mesh_Highlight = 0x10E49D04;
 
 static int RENDER_THREAD_COUNT;
 static int PHYSIC_THREADS_COUNT;
@@ -109,10 +111,10 @@ static float RUMBLE_STRENGTH_MISC = 1.0f;
 static float RUMBLE_STRENGTH_SPRINT = 0.005f;
 
 
-// JackalPatch v. 1.00
+// JackalPatch v. 1.0.1
 BYTE PatchVersion[] = {
-	0x4A, 0x00, 0x61, 0x00, 0x63, 0x00, 0x6B, 0x00, 0x61, 0x00, 0x6C, 0x00, 0x50, 0x00, 0x61, 0x00, 0x74, 0x00, 0x63, 
-	0x00, 0x68, 0x00, 0x20, 0x00, 0x76, 0x00, 0x2E, 0x00, 0x20, 0x00, 0x31, 0x00, 0x2E, 0x00, 0x30, 0x00, 0x30, 0x00, 0x00
+	0x4A, 0x00, 0x61, 0x00, 0x63, 0x00, 0x6B, 0x00, 0x61, 0x00, 0x6C, 0x00, 0x50, 0x00, 0x61, 0x00, 0x74, 0x00, 0x63, 0x00,
+	0x68, 0x00, 0x20, 0x00, 0x76, 0x00, 0x2E, 0x00, 0x20, 0x00, 0x31, 0x00, 0x2E, 0x00, 0x30, 0x00, 0x2E, 0x00, 0x31, 0x00, 0x00
 };
 
 // Print the current Patch version in the Dev Console window
@@ -464,7 +466,12 @@ void patch()
 	
 	// These hooks always need to be applied, since both the Saturation and ADS FOV tweak rely on them
 	InjectHook(sAddresses::_Get_Addresses, _Get_Addresses_Patch, HOOK_JUMP);
-	InjectHook(sAddresses::_Apply_New_Values, _Apply_New_Values_Patch, HOOK_JUMP); 
+	InjectHook(sAddresses::_Apply_New_Values, _Apply_New_Values_Patch, HOOK_JUMP);
+
+	if (get_private_profile_bool("NoBlinkingItems", FALSE))
+	{
+		PatchBytes(sAddresses::_Mesh_Highlight, (unsigned char*)"\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00", 14);
+	}
 	
 	if (get_private_profile_bool("ControllerRumble", TRUE))
 	{
